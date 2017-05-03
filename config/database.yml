@@ -81,6 +81,6 @@ test:
 production:
   <<: *default
   database: airporter_production
-  username: isopwzfshxaonz
-  password: 7f6a7d91229ad62670e18f686f67178187016b659f18199efb84f2b82c5638d0
+  # username: isopwzfshxaonz
+  # password: 7f6a7d91229ad62670e18f686f67178187016b659f18199efb84f2b82c5638d0
   url: <%= ENV['HEROKU_POSTGRESQL_OLIVE_URL'] %>
