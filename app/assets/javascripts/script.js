@@ -4,7 +4,7 @@
 // })
 
 // Run it this way
-// $(document).on('ready page:load', function () {
+$(document).on('ready page:load', function () {
   // this variable is from my flights controller
 
   // this check if variable gon.flights exist
@@ -18,4 +18,4 @@
   //
   // var $showFlightPage = $('#show-flight')
 
-// })
+})
