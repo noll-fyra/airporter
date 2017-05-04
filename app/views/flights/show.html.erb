@@ -1,4 +1,11 @@
 <section id="show-flight" class="section">
+  <h1 class="title">
+Fight ID#<%= @individual_flight.id %>
+<%= @individual_flight.from %> - <%= @individual_flight.to %>
+  </h1>
+  <%= link_to 'Edit Flight', edit_flight_path(@individual_flight), class: "button is-info" %>
+
+
   <pre>
     <%= params.inspect %>
     <%= @individual_flight.inspect %>

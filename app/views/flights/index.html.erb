@@ -10,7 +10,11 @@
           To: <%= flight.to %><br>
           Airline: <%= flight.airline %><br>
           #Passengers: <%= flight.num_passenger %><br><br>
-          <a class="button is-info is-inverted">View</a>
+          <%= link_to 'View', flight_path(flight), class: "button is-info is-inverted" %>
+          <%= link_to 'Edit', edit_flight_path(flight), class: "button is-primary" %>
+          <%= form_for flight, method: :delete do |f| %>
+            <%= f.submit 'Delete', class: "button is-secondary" %>
+          <% end %>
         </p>
       </div>
       <% end %>
