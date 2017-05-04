@@ -1,12 +1,12 @@
 <!-- Nav Section -->
 <nav class="nav">
   <div class="nav-left">
-    <a class="nav-item">
-      <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
-    </a>
+    <%= link_to root_path, class: "nav-item" do %>
+      <h1 class="title">Airporter</h1>
+    <% end %>
   </div>
 
-  <div class="nav-center">
+  <!-- <div class="nav-center">
     <a class="nav-item">
       <span class="icon">
         <i class="fa fa-github"></i>
@@ -17,7 +17,7 @@
         <i class="fa fa-twitter"></i>
       </span>
     </a>
-  </div>
+  </div> -->
 
   <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
   <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
@@ -30,15 +30,10 @@
   <!-- This "nav-menu" is hidden on mobile -->
   <!-- Add the modifier "is-active" to display it on mobile -->
   <div class="nav-right nav-menu">
-    <%= link_to "Home", root_path, class: "btn btn-primary" %>
-    <a class="nav-item">
-      Documentation
-    </a>
-    <a class="nav-item">
-      Blog
-    </a>
+    <%= link_to "Home", root_path, class: "nav-item" %>
+    <%= link_to "All Flights", flights_path, class: "nav-item" %>
 
-    <div class="nav-item">
+    <!-- <div class="nav-item">
       <div class="field is-grouped">
         <p class="control">
           <a class="button" >
@@ -57,6 +52,6 @@
           </a>
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
 </nav>

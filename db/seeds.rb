@@ -14,3 +14,12 @@
     num_passenger: rand(100)
   )
 end
+
+5.times do
+  Passenger.create(
+    firstname: Faker::StarWars.character,
+    lastname: Faker::Name.last_name,
+    dob: Faker::Date.birthday(18, 25),
+    flight_id: Flight.find(rand(Flight.count)).id
+  )
+end
