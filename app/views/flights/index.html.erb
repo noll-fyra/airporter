@@ -11,6 +11,14 @@
       <div class='column is-one-quarter'>
         <div class='card'>
           <div class='card-content'>
+            <% if user_signed_in? %>
+            <% if flight.users.include? current_user %>
+            <input type="hidden" class="hidden">
+            <% end %>
+            <% end %>
+            <script>
+            $('.hidden').each(function (index, item) { item.parentNode.style.backgroundColor = "black" })
+            </script>
             <p class='title'>
               <%= flight.from %> - <%= flight.to %>
             </p>

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do
+1.times do
   Flight.create(
     from: Faker::Address.country,
     to: Faker::Address.country,
@@ -15,11 +15,11 @@
   )
 end
 
-5.times do
-  Passenger.create(
-    firstname: Faker::StarWars.character,
-    lastname: Faker::Name.last_name,
-    dob: Faker::Date.birthday(18, 25),
-    flight_id: Flight.find(rand(Flight.count)).id
-  )
-end
+# 5.times do
+#   Passenger.create(
+#     firstname: Faker::StarWars.character,
+#     lastname: Faker::Name.last_name,
+#     dob: Faker::Date.birthday(18, 25),
+#     flight_id: Flight.find(rand(Flight.count)).id
+#   )
+# end

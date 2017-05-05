@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
   before_action :get_flight, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @all_flights = Flight.all
@@ -26,7 +27,6 @@ class FlightsController < ApplicationController
     gon.flight = @individual_flight
     # alert the data into the screen
 
-    @all_passengers = @individual_flight.passengers
   end
 
   def edit
@@ -39,16 +39,12 @@ class FlightsController < ApplicationController
 
   # RECEIVING A POST REQUEST TO CREATE
   def create
-    # @submitted_flight = params[:flight]
-    # Rails Console Way
-    # @saved_flight = Flight.new
-    # @saved_flight.from = @submitted_flight[:from]
-    # @saved_flight.to = @submitted_flight[:to]
-
-    # Mass Assignment Way - can't do this
     @submitted_flight = Flight.new(filter_params)
-    @submitted_flight.save
-    redirect_to flight_path(@submitted_flight)
+    if @submitted_flight.save
+
+    ActionCable.server.broadcast 'flight_update_channel', content: @submitted_flight, username: current_user
+  end
+    # redirect_to flight_path(@submitted_flight)
   end
 
   # RECEIVING A PUT/PATCH REQUEST TO UPDATE
