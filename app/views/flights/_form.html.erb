@@ -1,36 +1,20 @@
 
 <%= form_for flight_data do |f| %>
-  <div class="field">
-    <%= f.label :from, class: 'label' %>
-    <p class="control">
-      <%= f.text_field :from, class: 'input' %>
+  <div class="field is-grouped">
+    <p class="control is-expanded">
+      <%= f.text_field :from, class: 'input', placeholder: 'From' %>
     </p>
-  </div>
-
-  <div class="field">
-    <%= f.label :to, class: 'label' %>
-    <p class="control">
-      <%= f.text_field :to, class: 'input' %>
+    <p class="control is-expanded">
+      <%= f.text_field :to, class: 'input', placeholder: 'To' %>
     </p>
-  </div>
-
-  <div class="field">
-    <%= f.label :airline, class: 'label' %>
-    <p class="control">
-      <%= f.text_field :airline, class: 'input' %>
+    <p class="control is-expanded">
+      <%= f.text_field :airline, class: 'input', placeholder: 'Airline' %>
     </p>
-  </div>
-
-  <div class="field">
-    <%= f.label :num_passenger, class: 'label' %>
-    <p class="control">
-      <%= f.text_field :num_passenger, class: 'input' %>
+    <p class="control is-expanded">
+      <%= f.text_field :num_passenger, class: 'input', placeholder: '# Passengers' %>
     </p>
-  </div>
-
-  <div class="field">
     <p class="control">
-      <%= f.submit 'Submit', class: 'button is-primary' %>
+      <%= f.submit 'Create', class: 'button is-primary' %>
     </p>
   </div>
 <% end %>

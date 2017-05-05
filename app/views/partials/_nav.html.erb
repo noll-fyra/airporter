@@ -41,6 +41,15 @@
   <div class="nav-right nav-menu">
     <%= link_to "Home", root_path, class: "nav-item" %>
     <%= link_to "All Flights", flights_path, class: "nav-item" %>
+    <% if user_signed_in? %>
+      <!-- If user is signed in, show email of the current user -->
+      <%= link_to current_user.email, edit_user_registration_path, class: "nav-item" %>
+      <%= link_to "Logout", destroy_user_session_path, class: "nav-item", method: :delete %>
+    <% else %>
+      <!-- if not, show links to login or register -->
+      <%= link_to "Login", new_user_session_path, class: "nav-item" %>
+      <%= link_to "Register", new_user_registration_path, class: "nav-item" %>
+    <% end %>
 
     <!-- <div class="nav-item">
       <div class="field is-grouped">
