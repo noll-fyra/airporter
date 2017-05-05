@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 # current_user.flights = params[:flight]
 current_user.flights << Flight.find(params[:flight])
 
-
+ActionCable.server.broadcast 'flight_update_channel', content: @submitted_flight, username: current_user, method: 'booked'
     # current_user.update(flight_id: params[:flight])
     # Passenger.create({firstname: current_user.name, flight_id: params[:flight]})
     # x = Flight.find(params[:flight]).num_passenger

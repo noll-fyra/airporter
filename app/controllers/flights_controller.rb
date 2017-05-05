@@ -42,9 +42,9 @@ class FlightsController < ApplicationController
     @submitted_flight = Flight.new(filter_params)
     if @submitted_flight.save
 
-    ActionCable.server.broadcast 'flight_update_channel', content: @submitted_flight, username: current_user
+    ActionCable.server.broadcast 'flight_update_channel', content: @submitted_flight, username: current_user, method: 'create'
   end
-    # redirect_to flight_path(@submitted_flight)
+    redirect_to flights_path
   end
 
   # RECEIVING A PUT/PATCH REQUEST TO UPDATE
@@ -53,6 +53,7 @@ class FlightsController < ApplicationController
   def update
     @updated_flight = Flight.find(params[:id])
     if @updated_flight.update(filter_params) # if this update is successful
+      
       redirect_to flights_path
     end
   end
@@ -81,11 +82,6 @@ class FlightsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-    @individual_flight.destroy
-      redirect_to flights_path
   end
 
   private
